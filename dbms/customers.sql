@@ -1,0 +1,67 @@
+CREATE TABLE IF NOT EXISTS CUSTOMERS (
+  ID INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+  NAME TEXT NOT NULL,
+  AGE INTEGER NOT NULL,
+  ADDRESS TEXT NOT NULL,
+  SALARY DECIMAL(18,2) NOT NULL 
+);
+
+
+SELECT * from CUSTOMERS;
+
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY) 
+  VALUES ('chloe', '6', '112 via aurelia, roma', '1000.00');
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY) 
+  VALUES ('chloe', '6', '114 chestnut circle', '100000.00');
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY) 
+  VALUES ('joe', '7', '232 par drive, roma', '2000.00');
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY)
+VALUES ('Mark', 32, 'Texas', 50000.00 );
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY)
+VALUES ('John', 25, 'NY', 65000.00 );
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY)
+VALUES ('Emily', 23, 'Ohio', 20000.00 );
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY)
+VALUES ('Bill', 25, 'Chicago', 75000.00 );
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY)
+VALUES ('Tom', 27, 'Washington', 35000.00 );
+
+INSERT INTO CUSTOMERS (NAME, AGE, ADDRESS, SALARY)
+VALUES ('Jane', 22, 'Texas', 45000.00 );
+
+
+-- where condition
+
+-- SELECT column1, column2, ... columnN 
+
+-- FROM table_name
+
+-- WHERE [condition];
+
+SELECT name, salary, age FROM CUSTOMERS WHERE SALARY >= 1000;
+
+
+SELECT name, salary, age FROM CUSTOMERS WHERE name LIKE '%j%';
+
+SELECT id, name, salary from CUSTOMERS WHERE salary >= 50000;
+
+
+-- and and or clause
+SELECT name, salary, id, age FROM CUSTOMERS
+ WHERE salary > 50000 OR salary < 2000;
+
+SELECT id, name, age, salary FROM CUSTOMERS 
+WHERE age < 20  AND SALARY > 500;
+
+
+
+-- sqlite equivalent of desc table
+PRAGMA table_info(CUSTOMERS);
